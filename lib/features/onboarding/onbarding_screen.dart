@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:stride/features/authentication/presentation/pages/signup_page.dart';
+
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
@@ -58,9 +60,10 @@ class OnboardingScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 // Navigate to the next screen (login/signup)
-                Navigator.pushReplacementNamed(
-                  context,
-                  '/login',
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => const SignupPage(),
+                  ),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -70,7 +73,7 @@ class OnboardingScreen extends StatelessWidget {
                   vertical: 16,
                 ),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(15),
                 ),
               ),
               child: const Text(
