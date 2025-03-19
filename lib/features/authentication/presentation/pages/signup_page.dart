@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_appbar.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_button.dart';
+import 'package:stride/features/authentication/presentation/widgets/custom_auth_divider_content.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_input_fields.dart';
 
 class SignupPage extends StatelessWidget {
@@ -28,7 +29,7 @@ class SignupPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 45),
                 // App Logo
                 Text(
                   "Stride",
@@ -46,12 +47,12 @@ class SignupPage extends StatelessWidget {
                   children: [
                     const SizedBox(height: 8),
                     CustomAuthTextField(
-                      hintText: "Email",
+                      hintText: "   Email",
                       icon: Icons.email_outlined,
                     ),
                     const SizedBox(height: 16),
                     CustomAuthTextField(
-                      hintText: "Password",
+                      hintText: "   Password",
                       icon: Icons.lock_outline_rounded,
                       isPassword: true,
                     ),
@@ -63,29 +64,9 @@ class SignupPage extends StatelessWidget {
                   text: "Sign Up",
                   onPressed: () {},
                 ),
-                const SizedBox(height: 50),
-                // Already have an account
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      " Log In",
-                      style: TextStyle(
-                        color: Color(0xFFCFFF45),
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                const SizedBox(height: 42),
+                // Divider
+                CustomAuthDividerContent(),
               ],
             ),
           ),
