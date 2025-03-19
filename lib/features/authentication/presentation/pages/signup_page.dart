@@ -64,6 +64,28 @@ class SignupPage extends StatelessWidget {
                   onPressed: () {},
                 ),
                 const SizedBox(height: 50),
+                // Already have an account
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Already have an account?",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      " Log In",
+                      style: TextStyle(
+                        color: Color(0xFFCFFF45),
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
