@@ -36,19 +36,3 @@ class CustomAuthAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-
-// import 'package:flutter/material.dart';
-
-// class CustomAuthAppbar extends StatelessWidget {
-//   const CustomAuthAppbar({super.key, required this.title});
-
-//   final Text title;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return AppBar(
-//       backgroundColor: Colors.black,
-//       title: title,
-//     );
-//   }
-// }
