@@ -59,7 +59,7 @@ class OnboardingScreen extends StatelessWidget {
             // Get Started Button
             ElevatedButton(
               onPressed: () {
-                // Navigate to the next screen (login / signup)
+                // Navigate to the next screen (login/signup)
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (ctx) => const SignupPage(),
