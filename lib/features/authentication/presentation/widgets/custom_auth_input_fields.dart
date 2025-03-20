@@ -25,7 +25,7 @@ class CustomAuthTextField extends StatelessWidget {
             style: const TextStyle(
               // fontWeight: FontWeight.w600,
               color: Colors.white,
-              fontSize: 17,
+              fontSize: 16,
             ),
           ),
           const SizedBox(height: 7), // Space between label and input field
