@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stride/features/onboarding/onbarding_screen.dart';
 
 class CustomAuthAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAuthAppbar({super.key, required this.title});
@@ -16,7 +17,11 @@ class CustomAuthAppbar extends StatelessWidget implements PreferredSizeWidget {
         ), // Adds spacing around the back button
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (ctx) => OnboardingScreen(),
+              ),
+            );
           },
           child: Container(
             decoration: BoxDecoration(
