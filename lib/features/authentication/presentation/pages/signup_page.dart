@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stride/features/authentication/presentation/pages/login_page.dart';
 
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_appbar.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_button.dart';
@@ -19,6 +20,7 @@ class SignupPage extends StatelessWidget {
           "Sign Up",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 23,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -66,7 +68,17 @@ class SignupPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 42),
                 // Divider
-                CustomAuthDividerContent(),
+                CustomAuthDividerContent(
+                  onAuthActionTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => LoginPage(),
+                      ),
+                    );
+                  },
+                  authText: "Already have an account?",
+                  authActionText: "Log In",
+                ),
               ],
             ),
           ),
