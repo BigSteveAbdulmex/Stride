@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stride/features/authentication/presentation/pages/login_page.dart';
 
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_appbar.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_button.dart';
+import 'package:stride/features/authentication/presentation/widgets/custom_auth_divider_content.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_input_fields.dart';
 
 class SignupPage extends StatelessWidget {
@@ -18,6 +20,7 @@ class SignupPage extends StatelessWidget {
           "Sign Up",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 23,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -28,7 +31,7 @@ class SignupPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 45),
                 // App Logo
                 Text(
                   "Stride",
@@ -46,12 +49,12 @@ class SignupPage extends StatelessWidget {
                   children: [
                     const SizedBox(height: 8),
                     CustomAuthTextField(
-                      hintText: "Email",
+                      hintText: "   Email",
                       icon: Icons.email_outlined,
                     ),
                     const SizedBox(height: 16),
                     CustomAuthTextField(
-                      hintText: "Password",
+                      hintText: "   Password",
                       icon: Icons.lock_outline_rounded,
                       isPassword: true,
                     ),
@@ -63,7 +66,19 @@ class SignupPage extends StatelessWidget {
                   text: "Sign Up",
                   onPressed: () {},
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 42),
+                // Divider
+                CustomAuthDividerContent(
+                  onAuthActionTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => LoginPage(),
+                      ),
+                    );
+                  },
+                  authText: "Already have an account?",
+                  authActionText: "Log In",
+                ),
               ],
             ),
           ),
