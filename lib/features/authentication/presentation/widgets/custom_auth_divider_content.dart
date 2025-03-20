@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomAuthDividerContent extends StatelessWidget {
-  const CustomAuthDividerContent({super.key});
+  const CustomAuthDividerContent({
+    super.key,
+    required this.authText,
+    required this.authActionText,
+    required this.onAuthActionTap,
+  });
+
+  final String authText;
+  final String authActionText;
+  final VoidCallback onAuthActionTap;
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +25,10 @@ class CustomAuthDividerContent extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 8,
-              ), // Adds spacing around "Or"
-              child: Text(
+              ),
+              child: const Text(
                 "Or",
                 style: TextStyle(
                   color: Colors.white,
@@ -35,16 +44,15 @@ class CustomAuthDividerContent extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 25),
-        // Alternative sign up options ()Google and apple)
         Row(
-          mainAxisAlignment: MainAxisAlignment.center, // Centers the buttons
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
               onTap: () {
                 // Handle Google sign-in
               },
               child: Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
@@ -59,13 +67,13 @@ class CustomAuthDividerContent extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 20), // Space between buttons
+            const SizedBox(width: 20),
             GestureDetector(
               onTap: () {
                 // Handle Apple sign-in
               },
               child: Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
@@ -73,7 +81,7 @@ class CustomAuthDividerContent extends StatelessWidget {
                     width: 3,
                   ),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.apple,
                   size: 30,
                   color: Colors.white,
@@ -83,24 +91,26 @@ class CustomAuthDividerContent extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 31),
-        // Already have an account
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Already have an account?",
-              style: TextStyle(
+              authText,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 14,
               ),
             ),
             const SizedBox(width: 5),
-            Text(
-              " Log In",
-              style: TextStyle(
-                color: Color(0xFFCFFF45),
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            GestureDetector(
+              onTap: onAuthActionTap,
+              child: Text(
+                authActionText,
+                style: const TextStyle(
+                  color: Color(0xFFCFFF45),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
