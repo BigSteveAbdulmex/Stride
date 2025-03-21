@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:stride/features/authentication/presentation/pages/signup_page.dart';
+import 'package:stride/features/authentication/presentation/pages/forgotpassword_page.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_appbar.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_button.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_divider_content.dart';
@@ -42,17 +43,28 @@ class LoginPage extends StatelessWidget {
                     letterSpacing: 2.0,
                   ),
                 ),
+                const SizedBox(height: 15),
+                //
+                Text(
+                  "Welcome back, login to your account!",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                  ),
+                ),
                 const SizedBox(height: 50),
                 Column(
                   children: [
                     const SizedBox(height: 6),
                     CustomAuthTextField(
                       hintText: "   Email",
+                      labelText: "example@gmail.com",
                       icon: Icons.email_outlined,
                     ),
                     const SizedBox(height: 16),
                     CustomAuthTextField(
                       hintText: "   Password",
+                      labelText: "********",
                       icon: Icons.lock_outline_rounded,
                       isPassword: true,
                     ),
@@ -63,7 +75,13 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => ForgotpasswordPage(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Forgot password?",
                         style: TextStyle(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomAuthTextField extends StatelessWidget {
   final String hintText;
+  final String labelText;
   final IconData icon;
   final bool isPassword;
   final TextEditingController? controller;
@@ -9,6 +10,7 @@ class CustomAuthTextField extends StatelessWidget {
   const CustomAuthTextField({
     super.key,
     required this.hintText,
+    required this.labelText,
     required this.icon,
     this.isPassword = false,
     this.controller,
@@ -39,6 +41,10 @@ class CustomAuthTextField extends StatelessWidget {
               color: Colors.white,
             ), // Ensures entered text is white
             decoration: InputDecoration(
+              label: Text(
+                labelText,
+                style: TextStyle(color: Colors.grey[700]),
+              ),
               prefixIcon: Icon(icon, color: Colors.grey),
               filled: true,
               fillColor: Colors.grey.withValues(
