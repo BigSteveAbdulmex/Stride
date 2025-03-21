@@ -43,6 +43,15 @@ class SignupPage extends StatelessWidget {
                     letterSpacing: 2.0,
                   ),
                 ),
+                const SizedBox(height: 15),
+                //
+                Text(
+                  "Hi there, signup to get started!",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                  ),
+                ),
                 const SizedBox(height: 50),
                 // form
                 Column(
@@ -50,11 +59,13 @@ class SignupPage extends StatelessWidget {
                     const SizedBox(height: 8),
                     CustomAuthTextField(
                       hintText: "   Email",
+                      labelText: "example@gmail.com",
                       icon: Icons.email_outlined,
                     ),
                     const SizedBox(height: 16),
                     CustomAuthTextField(
                       hintText: "   Password",
+                      labelText: "********",
                       icon: Icons.lock_outline_rounded,
                       isPassword: true,
                     ),
