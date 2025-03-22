@@ -9,7 +9,6 @@ class CustomAuthAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.black26,
       title: title,
       leading: Padding(
         padding: const EdgeInsets.all(

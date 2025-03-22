@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stride/features/authentication/presentation/pages/login_page.dart';
 
+import 'package:stride/features/authentication/presentation/pages/login_page.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_appbar.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_button.dart';
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_divider_content.dart';
@@ -13,56 +13,58 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Colors.black26,
       appBar: CustomAuthAppbar(
         title: Text(
           "Sign Up",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 23,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.w600,
+                fontSize: screenWidth * 0.05, // Adjust text size dynamically
+              ),
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 45),
+                SizedBox(height: screenHeight * 0.05), // Responsive spacing
                 // App Logo
                 Text(
                   "Stride",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.pacifico(
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                  ),
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontFamily: GoogleFonts.pacifico().fontFamily,
+                        letterSpacing: 2.0,
+                        fontSize: screenWidth * 0.12, // Scale font size
+                      ),
                 ),
-                const SizedBox(height: 15),
-                //
+                SizedBox(height: screenHeight * 0.02),
                 Text(
                   "Hi there, signup to get started!",
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15,
-                  ),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        fontSize: screenWidth * 0.04,
+                      ),
                 ),
-                const SizedBox(height: 50),
-                // form
+                SizedBox(height: screenHeight * 0.06),
+                // Form
                 Column(
                   children: [
-                    const SizedBox(height: 8),
+                    SizedBox(height: screenHeight * 0.01),
                     CustomAuthTextField(
                       hintText: "   Email",
                       labelText: "example@gmail.com",
                       icon: Icons.email_outlined,
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: screenHeight * 0.02),
                     CustomAuthTextField(
                       hintText: "   Password",
                       labelText: "********",
@@ -71,19 +73,19 @@ class SignupPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: screenHeight * 0.05),
                 // Sign up button
                 CustomAuthButton(
                   text: "Sign Up",
                   onPressed: () {},
                 ),
-                const SizedBox(height: 42),
+                SizedBox(height: screenHeight * 0.06),
                 // Divider
                 CustomAuthDividerContent(
                   onAuthActionTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (ctx) => LoginPage(),
+                        builder: (ctx) => const LoginPage(),
                       ),
                     );
                   },
@@ -98,4 +100,3 @@ class SignupPage extends StatelessWidget {
     );
   }
 }
-// /

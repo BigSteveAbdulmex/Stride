@@ -24,9 +24,9 @@ class CustomAuthTextField extends StatelessWidget {
         children: [
           Text(
             hintText,
-            style: const TextStyle(
+            style: TextStyle(
               // fontWeight: FontWeight.w600,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 16,
             ),
           ),
@@ -37,9 +37,9 @@ class CustomAuthTextField extends StatelessWidget {
             keyboardType: isPassword
                 ? TextInputType.visiblePassword
                 : TextInputType.emailAddress,
-            style: const TextStyle(
-              color: Colors.white,
-            ), // Ensures entered text is white
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
             decoration: InputDecoration(
               label: Text(
                 labelText,
