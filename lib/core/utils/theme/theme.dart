@@ -8,23 +8,28 @@ class CustomAppTheme {
   CustomAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.red,
+      brightness: Brightness.light,
+    ),
     useMaterial3: true,
     appBarTheme: AuthAppbarTheme.lightAuthAppbarTheme,
     scaffoldBackgroundColor: Colors.white,
     fontFamily: "",
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
+    // primaryColor: Colors.blue,
     textTheme: CustomTextTheme.lightTextTheme,
     elevatedButtonTheme: CustomElevatedButtonTheme.lightElevatedButtonTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
+    colorSchemeSeed: Colors.green,
     useMaterial3: true,
     appBarTheme: AuthAppbarTheme.darkAuthAppbarTheme,
     scaffoldBackgroundColor: Colors.black26,
     fontFamily: "",
     brightness: Brightness.dark,
-    primaryColor: Colors.green,
+    // primaryColor: Colors.green,
     textTheme: CustomTextTheme.darkTextTheme,
     elevatedButtonTheme: CustomElevatedButtonTheme.darkElevatedButtonTheme,
   );
