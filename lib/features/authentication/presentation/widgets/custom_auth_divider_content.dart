@@ -28,10 +28,10 @@ class CustomAuthDividerContent extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: 8,
               ),
-              child: const Text(
+              child: Text(
                 "Or",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ),
@@ -81,25 +81,24 @@ class CustomAuthDividerContent extends StatelessWidget {
                     width: 3,
                   ),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.apple,
                   size: 30,
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 31),
+        const SizedBox(height: 33),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               authText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
             const SizedBox(width: 5),
             GestureDetector(
