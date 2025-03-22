@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:stride/features/authentication/presentation/pages/signup_page.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -9,83 +7,87 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen size
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
+
     return Scaffold(
-      backgroundColor: Colors.black26,
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: width * 0.06, // 6% of screen width
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Pushes content down
             const Spacer(),
+
             // App Logo
             Text(
               "Stride",
               textAlign: TextAlign.center,
-              style: GoogleFonts.pacifico(
-                fontSize: 55,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    fontFamily: GoogleFonts.pacifico().fontFamily,
+                    letterSpacing:
+                        width * 0.01, // Adjust spacing based on screen width
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
             ),
+
             const Spacer(),
+
             // Main Title
-            const Text(
+            Text(
               "Make Your Day With Stride",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    fontSize: width * 0.07, // 7% of screen width
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
-            const SizedBox(height: 24),
+
+            SizedBox(height: height * 0.03), // 3% of screen height
+
             // Subtitle/Description
-            const Text(
+            Text(
               "Plan smarter, track tasks, and stay productive without the clutter. Stride helps you stay in control of your time and goals.",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                color: Color.fromARGB(
-                  255,
-                  167,
-                  157,
-                  157,
-                ), // Gray for secondary text
-              ),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontSize: width * 0.04, // 4% of screen width
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
-            const SizedBox(height: 90),
+
+            SizedBox(height: height * 0.12), // 12% of screen height
+
             // Get Started Button
             ElevatedButton(
               onPressed: () {
-                // Navigate to the next screen (login/signup)
                 Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (ctx) => const SignupPage(),
-                  ),
+                  MaterialPageRoute(builder: (ctx) => const SignupPage()),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFCFFF45),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 120,
-                  vertical: 16,
+                backgroundColor: const Color(0xFFCFFF45),
+                padding: EdgeInsets.symmetric(
+                  horizontal: width * 0.3, // 30% of screen width
+                  vertical: height * 0.02, // 2% of screen height
                 ),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius:
+                      BorderRadius.circular(width * 0.04), // 4% of screen width
                 ),
               ),
-              child: const Text(
+              child: Text(
                 "Get Started",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: width * 0.045, // 4.5% of screen width
                   color: Colors.black,
                 ),
               ),
             ),
-            // Adds space before hitting the bottom
-            const SizedBox(height: 30),
+
+            SizedBox(height: height * 0.04), // 4% of screen height
           ],
         ),
       ),
