@@ -10,16 +10,18 @@ class ForgotpasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    // final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Colors.black26,
       appBar: CustomAuthAppbar(
         title: Text(
           "Forgot password",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 21,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.w600,
+                fontSize: screenWidth * 0.05, // Adjust text size dynamically
+              ),
         ),
       ),
       body: SingleChildScrollView(
@@ -32,19 +34,19 @@ class ForgotpasswordPage extends StatelessWidget {
                 Text(
                   "Stride",
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.pacifico(
-                    fontSize: 55,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 2.0,
-                  ),
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontFamily: GoogleFonts.pacifico().fontFamily,
+                        letterSpacing: 2.0,
+                        fontSize: screenWidth * 0.12, // Scale font size
+                      ),
                 ),
                 const SizedBox(height: 15),
                 //
                 Text(
                   "Enter your email address to reset your password!",
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontSize: 15,
                   ),
                 ),
@@ -52,13 +54,15 @@ class ForgotpasswordPage extends StatelessWidget {
                 //
                 Form(
                   child: TextFormField(
-                    style: const TextStyle(
-                      color: Colors.white,
-                    ), // Ensures entered text is white
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                     decoration: InputDecoration(
                       label: Text(
                         "example@gmail.com",
-                        style: TextStyle(color: Colors.grey[700]),
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
                       ),
                       prefixIcon: Icon(Icons.email, color: Colors.grey),
                       filled: true,
