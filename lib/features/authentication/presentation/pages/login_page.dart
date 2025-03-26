@@ -10,7 +10,10 @@ import 'package:stride/features/authentication/presentation/widgets/custom_auth_
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_input_fields.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,12 +62,14 @@ class LoginPage extends StatelessWidget {
                   children: [
                     SizedBox(height: screenHeight * 0.01),
                     CustomAuthTextField(
+                      controller: emailController,
                       hintText: "   Email",
                       labelText: "example@gmail.com",
                       icon: Icons.email_outlined,
                     ),
                     SizedBox(height: screenHeight * 0.02),
                     CustomAuthTextField(
+                      controller: passwordController,
                       hintText: "   Password",
                       labelText: "********",
                       icon: Icons.lock_outline_rounded,
@@ -101,7 +106,7 @@ class LoginPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (ctx) => const LoginPage(),
+                        builder: (ctx) => LoginPage(),
                       ),
                     );
                   },

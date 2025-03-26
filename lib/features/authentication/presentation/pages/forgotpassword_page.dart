@@ -6,7 +6,8 @@ import 'package:stride/features/authentication/presentation/widgets/custom_auth_
 import 'package:stride/features/authentication/presentation/widgets/custom_auth_button.dart';
 
 class ForgotpasswordPage extends StatelessWidget {
-  const ForgotpasswordPage({super.key});
+  ForgotpasswordPage({super.key});
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class ForgotpasswordPage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onSurface,
                         fontFamily: GoogleFonts.pacifico().fontFamily,
                         letterSpacing: 2.0,
-                        fontSize: screenWidth * 0.12, // Scale font size
+                        fontSize: screenWidth * 0.12,
                       ),
                 ),
                 const SizedBox(height: 15),
@@ -54,6 +55,7 @@ class ForgotpasswordPage extends StatelessWidget {
                 //
                 Form(
                   child: TextFormField(
+                    controller: emailController,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
