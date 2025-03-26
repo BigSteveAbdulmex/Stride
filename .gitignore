@@ -59,3 +59,5 @@ windows/
 analysis_options.yaml
 pubspec.lock
 stride.iml
+lib/firebase_options.dart
+firebase.json
